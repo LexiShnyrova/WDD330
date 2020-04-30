@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2</title>
+</head>
+<body>
+    
+<h2>Notes</h2>
+<h3>Chapter 2 Programming Basic</h3>
+<ul>
+    <li>Primitive data type: String, Symbol (The symbol primitive data type was only introduced in ES6.)
+        
+        ,Number
+        
+        ,Boolean
+        
+        ,Undefined
+        
+        ,Null</li>
+    <li>JavaScript has a special operator called typeof for finding out the type of a value.</li>
+    <li>const and let to declare variables.</li>
+    <li>If you want to know which character is at a certain position, you can use the charAt() method:</li>
+    <li>Symbols were introduced as a new primitive value in ES6. They can be used to create unique values, which helps to avoid any naming collisions</li>
+    <li>toExponential() method; this returns the number as a string in exponential notation.</li>
+    <li>toFixed() method rounds a number to a fixed number of decimal places:</li>
+    <li>Exponentiation example 2 ** 3 = 8</li>
+</ul>
+<h3>Chapter 3 Array, Logic, and Loop</h3>
+<ul>
+    <li>To declare ay array: const myArray = [];</li>
+    <li>To create array literal: const avengers = ['Captain America', 'Iron Man', 'Thor', 'Hulk'];</li>
+    <li>Remove value from array: delete avengers[3];</li>
+    <li>Find out the length of the array: avenger.length</li>
+    <li>To remove the last item from an array, we can use the pop() method</li>
+    <li>The shift() method works in a similar way to the pop() method, but this remove the first one.</li>
+    <li>The push() method appends a new value to the end of the array.</li>
+    <li>The unshift() method is similar to the push() method, but this appends a new item to thebeginningof the array:</li>
+    <li>The concat() method can be used to merge an array with one or more arrays:</li>
+    <li>The join() method can be used to turn the array into a string that comprises all the items in the array, separated by commas:</li>
+    <li>The splice() method removes items from an array then inserts new items in their place.</li>
+    <li>We can sort the order of an array using the sort() method:</li>
+    <li>We can reverse the order of an array using the reverse() method:</li>
+    <li>We can find out if an array contains a particular value using the indexOf()</li>
+    <li>To declare a set: const list = new Set();   </li>
+    <li>To add value to set: list.add(1);</li>
+    <li>Set contains unique values</li>
+    <li>The clear() method can be used to removeallvalues from a set:</li>
+    <li>Convert set to array: const shoppingArray = [...shoppingSet]</li>
+    <li>To declare a map: const romanNumerals = new Map();</li>
+    <li>To add a value in a map: romanNumerals.set(1,'I');</li>
+    <li>Convert map to array: Array.from() method:</li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<h2>Questions</h2>
+<ul>
+    <li>Not sure what is callback function</li>
+</ul>
+<h2>Code example</h2>
+
+<code>
+    fuction factorio(n){
+        if n = 1 
+        return 1;
+
+        return n * factorio(n-1);
+    }
+</code>
+<br>
+<code>
+    const message = 'Hello World!'
+    alert(message)
+</code>
+<br>
+<code>
+    // to figure out the type of the variable
+    typeof 'hello'
+<< 'string'
+</code>
+<br>
+<code>
+    const uniqueID = Symbol();
+</code>
+<br>
+<code>
+    Number.isInteger(42);
+<<< true
+Number.isInteger(3.142);
+<< false
+</code>
+<br>
+<code>
+    //merge array
+    avengers.concat(['Hulk','Hawkeye', 'Black Widow'])
+</code>
+<br>
+<code>
+    while (condition) {
+        // do something
+        }
+</code>
+<br>
+<code>
+    // to loop a set
+    for(const letter of letters) {
+        console.log(letter);
+    }
+</code>
+<br>
+<code>
+    //loop map
+    for(const key of romanNumerals.keys()) {
+        console.log(key);
+    }
+</code>
+<br>
+<code>
+    function sing(song,callback) {
+        console.log(`I'm singing along to ${song}.`);
+        callback();
+    }
+</code>
+<h2>Team Activity</h2>
+<input id="num1">
+<button onclick="add()">+</button>
+<button onclick="mul()">*</button>
+<button onclick="div()">/</button>
+<div id="answer"></div>
+<script src="main.js"></script>
+
+
+</body>
+</html>
