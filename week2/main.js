@@ -24,6 +24,20 @@ const mul = () => {
     display(num2);
 } 
 
+// using a different algorthm for factorial
+const fac = (n) => {
+    if (n == 1) 
+        return 1;    
+    return n * fac(n-1);
+}
+
+// this is another function to print factorial
+function printFac() {
+    var num1 = parseInt(document.getElementById("num1").value);
+    const factorial = fac(num1)
+    display(factorial)
+}
+
 const div = function() {
     var num1 = parseFloat(document.getElementById("num1").value);
     for (let i = num1; i >= 2; i--)
@@ -33,3 +47,4 @@ const div = function() {
     //document.getElementById("answer").innerHTML = num1;
     display(num1);
 }
+
