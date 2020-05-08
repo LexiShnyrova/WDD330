@@ -135,15 +135,59 @@
 
         // Array.prototype.filter()
         // 1. Filter the list of inventors for those who were born in the 1500's
-        let resultOne = inventors.filter(year => year.year > 1499 && year.year < 1600)
+
+        // make my own filter for practice
+        Array.prototype.lusFilter = function (callback) {
+            const filteredItems = []
+
+            for (let araryItem of this)
+                if (callback(araryItem))
+                    filteredItems.push(araryItem)
+            return filteredItems
+        }
+
+
+        // solution 1
+        let resultOne = inventors.lusFilter(year => year.year > 1499 && year.year < 1600)
+
+
+
+        // solution 2
+        // let resultOne = inventors.filter(callback)
+        // function callback(year) {
+        //     if (year.year > 1499 && year.year < 1600)
+        //         return true
+        //     else
+        //         return false
+        // }
         console.log(resultOne)
+
+
         // Array.prototype.map()
         // 2. Give us an array of the inventors' first and last names
-        const resultTwo = inventors.map(x => x.first + " " + x.last);
+        // solution 1
+        const resultTwo = inventors.map(x => x.first + " " + x.last)
+
+        //solution 2
+        // let resultTwo = inventors.map(callback)
+
+        // function callback(x) {
+        //     return x.first + " " + x.last
+        // }
         console.log(resultTwo)
+
         // Array.prototype.sort()
         // 3. Sort the inventors by birthdate, oldest to youngest
+        // solution 1
         let resultThree = inventors.sort((a, b) => a.year - b.year)
+
+        // solution 2
+        // let resultThree = inventors.sort(callback)
+
+        // function callback(a, b) {
+        //     return a.year - b.year
+        // }
+
         console.log(resultThree)
         // Array.prototype.reduce()
         // 4. How many years did all the inventors live?
