@@ -1,76 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
+    <h2>Note</h2>
+    <ul>
+        <li>Arrow functions are special: they don’t have their “own” this. If we reference this from such a function,
+            it’s taken
+            from the outer “normal” function.</li>
+        <li>Functions that are stored in object properties are called “methods”.</li>
+        <li>Methods allow objects to “act” like object.doSomething().</li>
+        <li>Methods can reference the object as this.</li>
+        <li>"of" is used with array. "in" is used with object.</li>
+    </ul>
+    <h2>Code Example</h2>
+    <pre>
+        JavaScript, object is a class. After declaring a function sayHi becomes a member method.
+        let user = {
+        name: "John",
+        age: 30
+        };
+        
+        user.sayHi = function () {
+        alert("Hello!");
+        };
+        
+        let user = {
+        name: "John",
+        age: 30,
+        sayHi = function () {
+        alert("Hello@")
+        }
+        };
+    </pre>
+    <br>
+    <pre>
+        // Binding: "this" can be assigned to other element. In this case, this can be user or admin
+        let user = { name: "John" };
+        let admin = { name: "Admin" };
+
+        // create a function that has "this" key word
+        function sayHi() {
+            alert(this.name);
+        }
+
+        // use the same function in two objects
+        user.f = sayHi;
+        admin.f = sayHi;
+
+        // these calls have different this
+        // "this" inside the function is the object "before the dot"
+        user.f(); // John  (this == user)
+        admin.f(); // Admin  (this == admin)
+
+        admin['f']();
+    </pre>
+
+    <h2>Questions</h2>
+    <ul>
+        <li>Please note that arrow functions are special: they have no this. When this is accessed inside an arrow
+            function, it is
+            taken from outside. What does it mean?</li>
+    </ul>
+
     <script>
         // Get your shorts on - this is an array workout!
         // ## Array Cardio Day 1
-  
+
         // Some data we can work with
-  
+
         const inventors = [
-          { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
-          { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
-          { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
-          { first: 'Marie', last: 'Curie', year: 1867, passed: 1934 },
-          { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
-          { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
-          { first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
-          { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
-          { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
-          { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
-          { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
-          { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
+            { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
+            { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
+            { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
+            { first: 'Marie', last: 'Curie', year: 1867, passed: 1934 },
+            { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
+            { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
+            { first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
+            { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
+            { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
+            { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
+            { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
+            { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
         ];
-  
+
         const people = [
-          'Beck, Glenn',
-          'Becker, Carl',
-          'Beckett, Samuel',
-          'Beddoes, Mick',
-          'Beecher, Henry',
-          'Beethoven, Ludwig',
-          'Begin, Menachem',
-          'Belloc, Hilaire',
-          'Bellow, Saul',
-          'Benchley, Robert',
-          'Benenson, Peter',
-          'Ben-Gurion, David',
-          'Benjamin, Walter',
-          'Benn, Tony',
-          'Bennington, Chester',
-          'Benson, Leana',
-          'Bent, Silas',
-          'Bentsen, Lloyd',
-          'Berger, Ric',
-          'Bergman, Ingmar',
-          'Berio, Luciano',
-          'Berle, Milton',
-          'Berlin, Irving',
-          'Berne, Eric',
-          'Bernhard, Sandra',
-          'Berra, Yogi',
-          'Berry, Halle',
-          'Berry, Wendell',
-          'Bethea, Erin',
-          'Bevan, Aneurin',
-          'Bevel, Ken',
-          'Biden, Joseph',
-          'Bierce, Ambrose',
-          'Biko, Steve',
-          'Billings, Josh',
-          'Biondo, Frank',
-          'Birrell, Augustine',
-          'Black, Elk',
-          'Blair, Robert',
-          'Blair, Tony',
-          'Blake, William'
+            'Beck, Glenn',
+            'Becker, Carl',
+            'Beckett, Samuel',
+            'Beddoes, Mick',
+            'Beecher, Henry',
+            'Beethoven, Ludwig',
+            'Begin, Menachem',
+            'Belloc, Hilaire',
+            'Bellow, Saul',
+            'Benchley, Robert',
+            'Benenson, Peter',
+            'Ben-Gurion, David',
+            'Benjamin, Walter',
+            'Benn, Tony',
+            'Bennington, Chester',
+            'Benson, Leana',
+            'Bent, Silas',
+            'Bentsen, Lloyd',
+            'Berger, Ric',
+            'Bergman, Ingmar',
+            'Berio, Luciano',
+            'Berle, Milton',
+            'Berlin, Irving',
+            'Berne, Eric',
+            'Bernhard, Sandra',
+            'Berra, Yogi',
+            'Berry, Halle',
+            'Berry, Wendell',
+            'Bethea, Erin',
+            'Bevan, Aneurin',
+            'Bevel, Ken',
+            'Biden, Joseph',
+            'Bierce, Ambrose',
+            'Biko, Steve',
+            'Billings, Josh',
+            'Biondo, Frank',
+            'Birrell, Augustine',
+            'Black, Elk',
+            'Blair, Robert',
+            'Blair, Tony',
+            'Blake, William'
         ];
-  
+
         // Array.prototype.filter()
         // 1. Filter the list of inventors for those who were born in the 1500's
         let resultOne = inventors.filter(year => year.year > 1499 && year.year < 1600)
@@ -81,55 +143,75 @@
         console.log(resultTwo)
         // Array.prototype.sort()
         // 3. Sort the inventors by birthdate, oldest to youngest
-        let resultThree = inventors.sort(function(a, b){return a.year-b.year})
+        let resultThree = inventors.sort((a, b) => a.year - b.year)
         console.log(resultThree)
         // Array.prototype.reduce()
         // 4. How many years did all the inventors live?
-        let resultFour = inventors.reduce(computeLifeYear)
-        function computeLifeYear(total, year){
-            // console.log(total, year)
+        let resultFour = inventors.reduce((total, year) => {
             if (total)
                 total = parseInt(total)
-            else 
+            else
                 total = 0
-            return total + (year.passed-year.year)
-        }   
+            return total + (year.passed - year.year)
+        })
         console.log(resultFour)
         // 5. Sort the inventors by years lived
-        let resultFive = inventors.sort(compareLive)
-        function compareLive(a, b){
+        let resultFive = inventors.sort((a, b) => {
             let ageA = a.passed - a.year
-            let ageB = b.passed - b.year 
-            return ageA - ageB;
-        }
+            let ageB = b.passed - b.year
+            return ageA - ageB
+        })
         console.log(resultFive)
         // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
         // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
         // goto the link above and open the console. Paste the following two lines in.  That will create a list of links in memory that you can reference through the console. Use that list to finish the problem.
         // const category = document.querySelector('.mw-category');
         // const links = Array.from(category.querySelectorAll('a'));
-        
+
+        // let resultSix = links.filter(contain => contain.innerText.includes("de"))
+
         // 7. sort Exercise
         // Sort the people alphabetically by last name
-  
+        let resultSeven = inventors.sort((a, b) => {
+            if (a.last < b.last)
+                return -1
+            if (a.last > b.last)
+                return 1
+            return 0
+        })
+        console.log(resultSeven)
         // 8. Reduce Exercise
         // Sum up the instances of each of these
         const data = [
-          'car',
-          'car',
-          'truck',
-          'truck',
-          'bike',
-          'walk',
-          'car',
-          'van',
-          'bike',
-          'walk',
-          'car',
-          'van',
-          'car',
-          'truck'
+            'car',
+            'car',
+            'truck',
+            'truck',
+            'bike',
+            'walk',
+            'car',
+            'van',
+            'bike',
+            'walk',
+            'car',
+            'van',
+            'car',
+            'truck'
         ];
-      </script>
+        let resultEight = data.reduce((allObjects, currentValue) => {
+            if (typeof allObjects != 'object')
+                allObjects = {}
+            if (currentValue in allObjects)
+                allObjects[currentValue]++
+            else
+                allObjects[currentValue] = 1
+
+            return allObjects
+        })
+        console.log(resultEight)
+
+
+    </script>
 </body>
+
 </html>

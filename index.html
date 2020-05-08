@@ -1,30 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WDD330 Lu's Profolio</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
-    <h1>Profolio</h1>
-    <h2>Assignments</h2>
-<ul>
-    <div class="list">
-    <li><a href="week1/">Week 1</a></li>
-    <li><a href="week2/">Week 2</a></li>
-    <li><a href="week3/">Week 3</a></li>
-    <li><a href="week4/">Week 4</a></li>
-    <li><a href="week5/">Week 5</a></li>
-    <li><a href="week6/">Week 6</a></li>
-    <li><a href="week7/">Week 7</a></li>
-    <li><a href="week8/">Week 8</a></li>
-    <li><a href="week9/">Week 9</a></li>
-    <li><a href="week10/">Week 10</a></li>
-    <li><a href="week11/">Week 11</a></li>
-    <li><a href="week12/">Week 12</a></li>
-    <li><a href="week13/">Week 13</a></li>
+    <!-- Simulate a smartphone / tablet -->
+    <div class="mobile-container">
+
+        <!-- Top Navigation Menu -->
+        <div class="topnav">
+            <a href="#home" class="active">Portfolio</a>
+            <div id="myLinks">
+                <a href="week1/">Week 1</a>
+                <a href="week2/">Week 2</a>
+                <a href="week3/">Week 3</a>
+                <a href="week4/">Week 4</a>
+                <a href="week5/">Week 5</a>
+                <a href="week6/">Week 6</a>
+                <a href="week7/">Week 7</a>
+                <a href="week8/">Week 8</a>
+                <a href="week9/">Week 9</a>
+                <a href="week10/">Week 10</a>
+                <a href="week11/">Week 11</a>
+                <a href="week12/">Week 12</a>
+                <a href="week13/">Week 13</a>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <div style="padding-left:16px">
+        </div>
+
+        <!-- End smartphone / tablet look -->
     </div>
-</ul>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+    </script>
+    <!-- <div class="navbar">
+        <div class="dropdown">
+            <button class="dropbtn">Assignments
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="week1/">Week 1</a>
+                <a href="week2/">Week 2</a>
+                <a href="week3/">Week 3</a>
+                <a href="week4/">Week 4</a>
+                <a href="week5/">Week 5</a>
+                <a href="week6/">Week 6</a>
+                <a href="week7/">Week 7</a>
+                <a href="week8/">Week 8</a>
+                <a href="week9/">Week 9</a>
+                <a href="week10/">Week 10</a>
+                <a href="week11/">Week 11</a>
+                <a href="week12/">Week 12</a>
+                <a href="week13/">Week 13</a>
+            </div>
+        </div>
+    </div>
+    <ul>
+
+    </ul> -->
 </body>
+
 </html>
