@@ -8,7 +8,128 @@
 </head>
 
 <body>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 40px;
+        }
+
+        td,
+        th {
+            border: 4px solid #dddddd;
+            text-align: left;
+            padding: 40px;
+        }
+
+        tr:nth-child(1) {
+            border-top: hidden;
+        }
+
+        tr:nth-child(3) {
+            border-bottom: hidden;
+        }
+
+        td:nth-child(1) {
+            border-left: hidden;
+        }
+
+        td:nth-child(3) {
+            border-right: hidden;
+        }
+    </style>
+    <h1>Notes</h1>
+    <ul>
+        <li>const form = document.forms[0];</li>
+        <li>getElementsByTagName has multipe item. It is an ARRAY!!!!!!!</li>
+        <li>To use eventlistener: First step is to get the element and assign to a variable. Then attach it to a
+            eventlistener.</li>
+    </ul>
+    <h1>Code Example</h1>
+    <h1>Question</h1>
+    <ul>
+        <li>No question yet but very thankful for the team activity. It is so much fun and helps me learn so much every
+            time. Love all the stretch goals.</li>
+    </ul>
+    <h1>Team Activity</h1>
+    <p>Player 1 is "O"</p>
+    <p>Player 2 is "X"</p>
+    <table>
+        <tr>
+            <td id="1"></td>
+            <td id="2"></td>
+            <td id="3"></td>
+        </tr>
+        <tr>
+            <td id="4"></td>
+            <td id="5"></td>
+            <td id="6"></td>
+        </tr>
+        <tr>
+            <td id="7"></td>
+            <td id="8"></td>
+            <td id="9"></td>
+        </tr>
+
+    </table>
+    <button value="Reset" id="clearTable">Reset</button>
+
     <script>
+        // to put O and X on the table
+        const allCells = document.getElementsByTagName('td')
+        let myArray = []
+        let isPlayer1 = true;
+        for (let i = 0; i < 9; i++) {
+            allCells[i].addEventListener('touchend', () => {
+                if (isPlayer1) {
+                    allCells[i].innerHTML = "O"
+                    myArray[i] = "O"
+                    isPlayer1 = false
+                }
+                else {
+                    allCells[i].innerHTML = "X"
+                    myArray[i] = "X"
+                    isPlayer1 = true
+                }
+
+                setTimeout(() => {
+                    if (checkWinner(myArray) == 'O')
+                        alert('Player 1 is the winner')
+                    else if (checkWinner(myArray) == 'X')
+                        alert('Player 2 is the winner')
+                }, 0)
+            })
+        }
+
+        // check if there is any winnter
+        function checkWinner(myArray) {
+
+            if (myArray[0] == myArray[1] && myArray[1] == myArray[2])
+                return myArray[0]
+            else if (myArray[3] == myArray[4] && myArray[4] == myArray[5])
+                return myArray[3]
+            else if (myArray[6] == myArray[7] && myArray[7] == myArray[8])
+                return myArray[6]
+            else if (myArray[0] == myArray[3] && myArray[3] == myArray[6])
+                return myArray[0]
+            else if (myArray[1] == myArray[4] && myArray[4] == myArray[7])
+                return myArray[1]
+            else if (myArray[2] == myArray[5] && myArray[5] == myArray[8])
+                return myArray[2]
+            else if (myArray[0] == myArray[4] && myArray[4] == myArray[8])
+                return myArray[0]
+            else if (myArray[2] == myArray[4] && myArray[4] == myArray[6])
+                return myArray[2]
+        }
+
+        // to reset
+        const clearTable = document.getElementById('clearTable')
+        clearTable.addEventListener('click', () => {
+            for (let i = 0; i < 9; i++) {
+                allCells[i].innerHTML = ""
+            }
+            myArray = []
+        })
 
     </script>
 </body>
