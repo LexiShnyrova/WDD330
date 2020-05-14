@@ -44,9 +44,75 @@
         <li>getElementsByTagName has multipe item. It is an ARRAY!!!!!!!</li>
         <li>To use eventlistener: First step is to get the element and assign to a variable. Then attach it to a
             eventlistener.</li>
+        <li>my2DimentionalArray = [[],[],[]]</li>
+        <li>There are three main concepts in OOP: encapsulation, polymorphism and inheritance.</li>
     </ul>
     <h1>Code Example</h1>
+    <pre>
+        // This is a function that defines the properties and methods of an object. Here is the dice example rewritten as a
+        // constructor function:
+
+        const Dice = function(sides=6){
+        this.sides = sides;
+        this.roll = function() {
+        return Math.floor(this.sides * Math.random() + 1)
+        }
+        }
+    </pre>
+
+    <pre>
+        //We can now create aninstanceof the dice constructor function using the new operator.
+        // It is the old way to create a class in JavaScript
+        const redDice = new Dice();
+        << Dice { sides: 6, roll: [Function] }
+    </pre>
+
+    <pre>
+        The parentheses are not required when instantiating a new object using a constructor function. The following code would
+        also achieve the same result:
+        
+        const redDice = new Dice;
+    </pre>
+
+    <pre>
+        //NEW NEW NEW NEW NEW NEW WAY TO DO CLASS!!!!!!!!!
+        Here is the dice example again, using a class declaration:
+        class Dice {
+        constructor(sides=6) {
+        this.sides = sides;
+        }
+        roll() {
+        return Math.floor(this.sides * Math.random() + 1)
+        }
+        }
+    </pre>
+
+    <pre>
+        To create an instance of the Dice class, the new operator is again used:
+        
+        const blueDice = new Dice(20);
+        << Dice { sides: 20 }
+    </pre>
+
     <h1>Question</h1>
+    <ul>
+        <li>What is static method? What is the diference bettween static and instance. </li>
+        <pre>I later found the answer for it. Static and instance method could be considered like a wife of the class(husband). 
+            Static method can't have nanies(instances). 
+            Instances method can have babies(instances).
+        </pre>
+        <li>What is Prototype?</li>
+        <pre>
+            I found the answer! And it blows up my mind!
+            
+            Prototype is a way to modify a class. For example, when I don't have access to Array class that somebody creates,
+            I can use Array.prototype.mySpecialFunction = fucntion().... to add a function to the class. 
+            All the instances of array will have access to mySpecialMethodOrVar.
+            let myArray = []
+            myArray.mySpecialMethodOrVar()
+            
+        </pre>
+    </ul>
     <ul>
         <li>No question yet but very thankful for the team activity. It is so much fun and helps me learn so much every
             time. Love all the stretch goals.</li>
