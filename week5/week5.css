@@ -109,14 +109,42 @@ input {
   border-radius: 0;
 }
 
-.addBtn:hover {
+.addBtn:hover, #complete:hover, #incomplete:hover, #all:hover {
   background-color: #bbb;
 }
-
-#complete, #incomplete{
+#all{
+  margin-top: 10px;
   padding: 10px;
-  width: 50%;
+  width: 31%;
   background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+#complete{
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 10px;
+  width: 31%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+#incomplete{
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 10px;
+  width: 31%;
+  background:  #d9d9d9;
   color: #555;
   float: left;
   text-align: center;
