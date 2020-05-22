@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week 5</title>
+</head>
+
+<body>
+    <h2>Note</h2>
+    <ul>
+        <li>System error ― there’s a problem with the system or external devices with
+            which the program is interacting.
+            Programmer error ― the program contains incorrect syntax or faulty logic; it
+            could even be as simple as a typo.
+            User error ― the user has entered data incorrectly, which the program is
+            unable to handle.</li>
+        <li>An exception is an error that produces a return value that can then be used by the
+            program to deal with the error.</li>
+        <li>An exception will also produce a stack trace. This is a sequence of functions or
+            method calls that lead to the point where the error occurred</li>
+        <li>A warning can occur if there’s an error in the code that isn’t enough to cause the
+            program to crash.</li>
+        <li>A strict mode that produces more exceptions and
+            warnings and prohibits the use of some deprecated features.</li>
+        <li>Linting tools such as JS Lint,1 JS Hint,2 and ES Lint3 can be used to test the
+            quality of JavaScript code, beyond simply using strict mode.
+        <li>Programming in JavaScript can be something of a moving target as the APIs it
+            uses are in a constant state of flux.</li>
+        <li>Debugging is the process of finding out where bugs occur in the code and then
+            dealing with them.</li>
+        <li>The most basic form of debugging is to use the alert() method to show a dialog
+            at certain points in the code.</li>
+        <li>Using console.log()</li>
+        <li>Most modern browsers also have a debugging tool that allows you to set
+            breakpoints in your code that will pause it at certain points.</li>
+        <li>An error object can be created by the host environment when an exception
+            occurs, or it can be created in the code using a constructor functio</li>
+    </ul>
+
+    <h2>Code Examples</h2>
+    <pre>
+        function strictly(){
+        'use strict';
+        // function code goes here
+        }
+    </pre>
+
+    <pre>
+        if (window.holoDeck) {
+    virtualReality.activate();
+    }
+    </pre>
+
+    <pre>
+        function amIOldEnough(age){
+        if (age = 12) {
+        alert(age);
+        return 'No, sorry.';
+        } else if (age < 18) { return 'Only if you are accompanied by an adult.' ; } else { return 'Yep, come on in!' ; } }
+
+    </pre>
+
+    <pre>
+        function amIOldEnough(age){
+        debugger;
+        if (age < 12) { 
+            debugger; return 'No, sorry.' ; 
+        } else if (age < 18) { 
+            debugger;
+            return 'Only if you are accompanied by an adult.' ; 
+        } else {
+             debugger; return 'Yep, come on in!' ;
+        }
+        }
+        amIOldEnough(16);
+    </pre>
+
+    <pre>
+        const error = new Error();
+        const error = new Error('Oops, something went wrong');
+        const error = new TypeError('You need to use numbers in this
+        ➥ function');
+
+    </pre>
+    <h2>Questions</h2>
+</body>
+
+</html>
