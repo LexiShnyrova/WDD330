@@ -11,9 +11,9 @@ for (i = 0; i < myNodelist.length; i++) {
 
 // Click on a close button to hide the current list item
 let close = document.getElementsByClassName("close");
-let i;
-for (i = 0; i < close.length; i++) {
-    close[i].onclick = function () {
+let f;
+for (f = 0; f < close.length; f++) {
+    close[f].onclick = function () {
         let div = this.parentElement;
         div.style.display = "none";
     }

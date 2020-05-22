@@ -6,7 +6,7 @@ body {
   max-width: 480px;
   margin: auto;
   background-color: rgb(97, 93, 96);
-  height: 500px;
+  /* height: 500px; */
   color: white;
   border-radius: 10px;
 }
