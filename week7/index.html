@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Note</h3>
+    <ul>
+        <li>The call() method can be used to set the value of this inside a function to an
+            object that is provided as the first argument.</li>
+        <li>If a function doesn’t refer to an object as this in its body, it can still be called
+            using the call() method, but you need provide null as its first argument.</li>
+        <li>An Immediately Invoked Function Expression – or IIFE (pronounced “iffy”) – is
+            an anonymous function that, as the name suggests, is invoked as soon as it’s
+            defined. This is easily achieved by placing parentheses at the end of the function
+            definition.a useful way of performing a task while keeping any variables wrapped
+            up within the scope of the function</li>
+        <li>The dynamic nature of JavaScript means that a function is able to not only call
+            itself, but define itself, and even redefine itself. This is done by assigning an
+            anonymous function to a variable that has the same name as the function.</li>
+
+    </ul>
+    <h3>Code Example</h3>
+    <li>
+        <pre>
+            // create sayHello function and use call() method
+            function sayHello(){
+            return `Hello, my name is ${ this.name }`;
+            }
+
+            const clark = { name: 'Clark' };
+            const bruce = { name: 'Bruce' };
+            sayHello.call(clark);
+            << 'Hello, my name is Clarke' sayHello.call(bruce); << 'Hello, my name is Bruce'
+
+            
+            function sayHello(greeting='Hello'){
+            return `${ greeting }, my name is ${ this.name }`;
+            }
+            sayHello.call(clark, 'How do you do');
+            << 'How do you do, my name is Clark'
+            sayHello.call(bruce);
+            << 'Hello, my name is Bruce'
+        </pre>
+    </li>
+    <li>
+        <pre>
+            square.call(null, 4)
+            << 16
+        </pre>
+    </li>
+    <li>
+        <pre>
+            // The apply() method works in the same way, except the arguments of the
+            // function are provided as an array, even if there is only one argument:
+            square.apply(null, [4])
+            << 16
+        </pre>
+    </li>
+    <li>
+        <pre>
+            function party(){
+            console.log('Wow this is amazing!');
+            party = function(){
+            console.log('Been there, got the T-Shirt');
+            }
+            }
+
+        </pre>
+    </li>
+    <h3>Questions</h3>
+</body>
+
+</html>

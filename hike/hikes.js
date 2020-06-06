@@ -1,8 +1,10 @@
+import Comments from './comments.js'
 // Example of using Classes and modules to organize the code needed to render our list of hikes. Not using MVC here.
 
 //create an array of hikes
 const hikeList = [
     {
+        id: 1,
         name: "Bechler Falls",
         imgSrc: "falls.jpg",
         imgAlt: "Image of Bechler Falls",
@@ -14,6 +16,7 @@ const hikeList = [
             "Take Highway 20 north to Ashton. Turn right into the town and continue through. Follow that road for a few miles then turn left again onto the Cave Falls road.Drive to the end of the Cave Falls road. There is a parking area at the trailhead."
     },
     {
+        id: 2,
         name: "Teton Canyon",
         imgSrc: "falls.jpg",
         imgAlt: "Image of Bechler Falls",
@@ -24,6 +27,7 @@ const hikeList = [
             "Take Highway 33 East to Driggs. Turn left onto Teton Canyon Road. Follow that road for a few miles then turn right onto Stateline Road for a short distance, then left onto Alta Road. Veer right after Alta back onto Teton Canyon Road. There is a parking area at the trailhead."
     },
     {
+        id: 3,
         name: "Denanda Falls",
         imgSrc: "falls.jpg",
         imgAlt: "Image of Bechler Falls",
@@ -40,6 +44,8 @@ const imgBasePath = "//byui-cit.github.io/cit261/examples/";
 //on load grab the array and insert it into the page on load
 
 export default class Hikes {
+    comment = new Comments()
+
     constructor(elementId) {
         this.parentElement = document.getElementById(elementId);
         // we need a back button to return back to the list. This will build it and hide it. When we need it we just need to remove the 'hidden' class
@@ -56,7 +62,7 @@ export default class Hikes {
     }
     //show a list of hikes in the parentElement
     showHikeList() {
-        renderHikeList(this.parentElement, hikeList)
+        this.renderHikeList(this.parentElement, hikeList)
         this.addHikeListener()
     }
     // show one hike with full details in the parentElement
@@ -77,7 +83,8 @@ export default class Hikes {
                 let name = e.target.closest('li').firstElementChild.innerHTML
                 let aHike = this.getHikeByName(name)
                 this.parentElement.innerHTML = ""
-                this.parentElement.append(renderOneHikeFull(aHike))
+                this.parentElement.append(this.renderOneHikeFull(aHike))
+                this.comment.renderOneHikeComments(hike.id)
                 this.parentElement.append(this.buildBackButton())
             })
         }
@@ -94,16 +101,73 @@ export default class Hikes {
         })
         return backButton;
     }
-}
-// methods responsible for building HTML.  Why aren't these in the class?  They don't really need to be, and by moving them outside of the exported class, they cannot be called outside the module...they become private.
-function renderHikeList(parent, hikes) {
-    for (let hike of hikes) {
-        // use append because rederOneHikeLight is an object
-        parent.append(renderOneHikeLight(hike))
+    renderOneHikeFull(hike) {
+        const item = document.createElement("li");
+        item.innerHTML = ` <h2>${hike.name}</h2>
+    <div class="image"><img src="${imgBasePath}${hike.imgSrc}" alt="${hike.imgAlt}"></div>
+    <div>
+            <div>
+                <h3>Distance</h3>
+                <p>${hike.distance}</p>
+            </div>
+            <div>
+                <h3>Difficulty</h3>
+                <p>${hike.difficulty}</p>
+            </div>
+            <div>
+                <h3>Description</h3>
+                <p>${hike.description}</p>
+            </div>
+            <div>
+                <h3>Direction</h3>
+                <p>${hike.directions}</p>
+            </div>
+            <div>
+                <h3>Leave A Comment</h3>
+                <textarea id="textarea"></textarea>
+            </div>
+    </div>`;
+
+        let addComment = document.createElement('button')
+        addComment.innerText = "Send"
+        addComment.addEventListener('click', () => {
+            let textContent = document.getElementById('textarea')
+            this.comment.addComment(hike.id, textContent.value)
+            textContent.value = ''
+            this.comment.renderOneHikeComments(hike.id)
+        })
+
+        item.append(addComment)
+
+        const commentsItem = document.createElement('div')
+        commentsItem.innerHTML = ` <h3>Comments</h3>
+            <div id="comments">
+                <p>Here is the commentssss</p>
+                <p>Here is the commentssss</p>
+                <p>Here is the commentssss</p>
+                <p>Here is the commentssss</p>
+                <p>Here is the commentssss</p>
+                <p>Here is the commentssss</p>
+            </div>`
+
+        item.append(commentsItem)
+        document.getElementById('comment-list').innerHTML = ''
+        return item;
     }
+
+    renderHikeList(parent, hikes) {
+        for (let hike of hikes) {
+            // use append because rederOneHikeLight is an object
+            parent.append(renderOneHikeLight(hike))
+        }
+        this.comment.renderCommentList()
+    }
+
 }
+
 function renderOneHikeLight(hike) {
-    const item = document.createElement("li");
+    const item = document.createElement("li")
+    item.id = hike.id
     item.innerHTML = ` <h2>${hike.name}</h2>
   <div class="image"><img src="${imgBasePath}${hike.imgSrc}" alt="${hike.imgAlt}"></div>
   <div>
@@ -115,30 +179,6 @@ function renderOneHikeLight(hike) {
               <h3>Difficulty</h3>
               <p>${hike.difficulty}</p>
           </div>
-  </div>`;
-    return item;
-}
-function renderOneHikeFull(hike) {
-    const item = document.createElement("li");
-    item.innerHTML = ` <h2>${hike.name}</h2>
-  <div class="image"><img src="${imgBasePath}${hike.imgSrc}" alt="${hike.imgAlt}"></div>
-  <div>
-          <div>
-              <h3>Distance</h3>
-              <p>${hike.distance}</p>
-          </div>
-          <div>
-              <h3>Difficulty</h3>
-              <p>${hike.difficulty}</p>
-          </div>
-          <div>
-              <h3>Description</h3>
-              <p>${hike.description}</p>
-          </div>
-          <div>
-              <h3>Direction</h3>
-              <p>${hike.directions}</p>
-          </div>
-  </div>`;
+  </div>`
     return item;
 }
