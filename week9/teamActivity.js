@@ -58,7 +58,6 @@ window.addEventListener('keypress', (e) => {
       button.style.marginTop = margin + 'px'
 
       audio.onplaying = (event) => {
-          console.log('in playing')
           document.getElementById(e.key).classList.add('playing')
       }
      audio.onended = (event) => {
