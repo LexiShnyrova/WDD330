@@ -6,7 +6,35 @@
     
   </head>
   <body>
-  
+    <h3>Notes</h3>
+    <ul>
+        <li> With canvas, we can draw shapes and lines, arcs and text, gradients and patterns. In addition, canvas gives us the power to manipulate pixels in images and even video.</li>
+        <li>Radians are a unit used to measure angles, and the symbol π denotes a measurement in radians. One radian is equal to 180 degrees. Two radians, or 2π, are equal to 360 degrees. </li>
+    </ul>
+    <h3>Code Example</h3>
+    <ul>
+        <li>
+            <pre>
+                //  1 - The first step to using canvas is to add a canvas element to the page:
+                <canvas id="myCanvas" class="myCanvas" width="200" height="200">
+                    Sorry! Your browser doesn’t support Canvas.
+                </canvas>
+
+                // 2- But first, let’s start with the basics. Before we can draw onto a canvas, we need to grab hold of the canvas element on our page:
+                var canvas = document.getElementById("myCanvas");
+
+                // 3- We obtain our drawing context by calling the getContext method and passing it the string "2d" , since we’ll be drawing in two dimensions:
+                var context = canvas.getContext("2d");
+
+                // 4-Let’s start by using a color string to style thestroke
+                context.strokeStyle = "red";
+
+
+            </pre>
+        </li>
+    </ul>
+    <h3>Question</h3>
+    <h3>Team Activity</h3>
   
     <div class="keys">
       <div data-key="65" class="key" id="a">
