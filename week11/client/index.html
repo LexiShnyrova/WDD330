@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="login-form">
+        <input type="text" id="username" placeholder="email" value="user1@email.com"><br>
+        <input type="text" id="password" placeholder="password" value="user1"><br>
+        <button id="submit">Submit</button>
+    </div>
+
+    <div id="posts">
+
+    </div>
+
+    <div class="hidden" id="post-form">
+        <textarea type="text" id="post-body"></textarea><br>
+        <button type="button" id="add-post">Add</button>
+    </div>
+
+    <script src="./scripts/week11.js" type="module"></script>
+    <script src="./scripts/auth.js" type="module"></script>
+    <script src="./scripts/authHelper.js" type="module"></script>
+
+</body>
+
+</html>
