@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Lu's Meal Planner</title>
+</head>
+
+<body>
+    <div id="myDIV" class="header">
+        <h2>Add New Recipe</h2>
+        <a href="index.html" id="weeklyMeal">Weekly Meal</a>
+        <a href="recipesList.html" id="recipesList">Recipes List</a>
+        <a href="addRecipe.html" id="addRecipe">Add Recipe</a>
+    </div>
+
+    <!-- <form>
+        <label for="fname">Recipe Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="lname">Ingredient:</label><br>
+        <input type="text" id="ingredient" name="ingredient">
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname">
+    </form> -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-25">
+                <label for="name">Name</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="name" name="name" placeholder="Recipe Name">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="ingredient">Ingredient</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="ingredient" name="ingredient" placeholder="Recipe Ingredient">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="country">Type</label>
+            </div>
+            <div class="col-75">
+                <select id="type" name="type">
+                    <option value="desert">Desert</option>
+                    <option value="Meaty">Meaty</option>
+                    <option value="Veggie">Veggie</option>
+                    <option value="Soup">Soup</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="instruction">Instruction</label>
+            </div>
+            <div class="col-75">
+                <textarea id="instruction" name="instruction" placeholder="Write down the steps of how to make the meal"
+                    style="height:200px"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <button class="submit-btn" id="addBtn" value="Add">Add</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="addRecipe.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+.add-btn {
+    border-radius: 50% !important;
+    position: relative;
+    top: -7px;
+    left: -10px;
+    height: 35px;
+    width: 35px;
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+}
+
+.hide-body + .recipe-body {
+    display: none;
+}
